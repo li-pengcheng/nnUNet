@@ -243,31 +243,35 @@ def reorient_to_RAS(img_fname: str, output_fname: str = None):
 
 
 if __name__ == "__main__":
-    # investigate geometry issues
-    import SimpleITK as sitk
+    # # investigate geometry issues
+    # import SimpleITK as sitk
+    #
+    # # load image
+    # gt_itk = sitk.ReadImage(
+    #     "/media/fabian/Results/nnUNet/3d_fullres/Task064_KiTS_labelsFixed/nnUNetTrainerV2__nnUNetPlansv2.1/gt_niftis/case_00085.nii.gz")
+    #
+    # # get numpy array
+    # pred_npy = sitk.GetArrayFromImage(gt_itk)
+    #
+    # # create new image from numpy array
+    # prek_itk_new = sitk.GetImageFromArray(pred_npy)
+    # # copy geometry
+    # prek_itk_new.CopyInformation(gt_itk)
+    # # prek_itk_new = copy_geometry(prek_itk_new, gt_itk)
+    #
+    # # save
+    # sitk.WriteImage(prek_itk_new, "test.mnc")
+    #
+    # # load images in nib
+    # gt = nib.load(
+    #     "/media/fabian/Results/nnUNet/3d_fullres/Task064_KiTS_labelsFixed/nnUNetTrainerV2__nnUNetPlansv2.1/gt_niftis/case_00085.nii.gz")
+    # pred_nib = nib.load("test.mnc")
+    #
+    # new_img_sitk = sitk.ReadImage("test.mnc")
+    #
+    # np1 = sitk.GetArrayFromImage(gt_itk)
+    # np2 = sitk.GetArrayFromImage(prek_itk_new)
 
-    # load image
-    gt_itk = sitk.ReadImage(
-        "/media/fabian/Results/nnUNet/3d_fullres/Task064_KiTS_labelsFixed/nnUNetTrainerV2__nnUNetPlansv2.1/gt_niftis/case_00085.nii.gz")
-
-    # get numpy array
-    pred_npy = sitk.GetArrayFromImage(gt_itk)
-
-    # create new image from numpy array
-    prek_itk_new = sitk.GetImageFromArray(pred_npy)
-    # copy geometry
-    prek_itk_new.CopyInformation(gt_itk)
-    # prek_itk_new = copy_geometry(prek_itk_new, gt_itk)
-
-    # save
-    sitk.WriteImage(prek_itk_new, "test.mnc")
-
-    # load images in nib
-    gt = nib.load(
-        "/media/fabian/Results/nnUNet/3d_fullres/Task064_KiTS_labelsFixed/nnUNetTrainerV2__nnUNetPlansv2.1/gt_niftis/case_00085.nii.gz")
-    pred_nib = nib.load("test.mnc")
-
-    new_img_sitk = sitk.ReadImage("test.mnc")
-
-    np1 = sitk.GetArrayFromImage(gt_itk)
-    np2 = sitk.GetArrayFromImage(prek_itk_new)
+        verify_dataset_integrity(
+            '/home/lipengcheng/local_codes/nnUNet/DATASET/nnUNet_raw/nnUNet_raw_data/Task010_Maiqi68_01/'
+        )

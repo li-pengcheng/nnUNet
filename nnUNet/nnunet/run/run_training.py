@@ -196,4 +196,6 @@ def main():
 
 
 if __name__ == "__main__":
+    from nnunet.utilities.read_gpu_free import sleep_until_gpu_free
+    sleep_until_gpu_free()
     main()
